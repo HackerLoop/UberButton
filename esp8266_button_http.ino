@@ -55,9 +55,8 @@ void loop() {
 void Request() {
    HTTPClient http;
    http.begin(url);
-   http.addHeader("Content-Type", "application/json");
    http.addHeader("x-api-key", gateway_token);
-   String payload = String("{"clickType"; "SINGLE" }"); 
+   String payload = "{\"clickType\":\"SINGLE\"}";  
    Serial.print("POST payload: "); Serial.println(payload);
    int httpCode = http.POST(payload);
    Serial.print("HTTP POST Response: "); Serial.println(httpCode); // HTTP code 200 means ok 
