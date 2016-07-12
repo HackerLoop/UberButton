@@ -11,7 +11,7 @@ ESP8266WiFiMulti WiFiMulti;
 
 const int buttonPin = D2;
 int buttonState = 0;
-String url = "https://ewiqmhfpwe.execute-api.eu-central-1.amazonaws.com/prod/";
+String url = "https://ewiqmhfpwe.execute-api.eu-central-1.amazonaws.com/prod/126lafayette/";
 String gateway_token ="";
 void Request();
 
@@ -54,9 +54,9 @@ void loop() {
 
 void Request() {
    HTTPClient http;
-   http.begin(url);
+   http.begin(url, "70 05 FF 6C 40 C1 E8 26 22 BD 69 7C 2B 01 5B 7C 9F C3 63 47");
    http.addHeader("x-api-key", gateway_token);
-   String payload = "{\"clickType\":\"SINGLE\"}";  
+   String payload = "{\"clickType\":\"SINGLE\"}"; 
    Serial.print("POST payload: "); Serial.println(payload);
    int httpCode = http.POST(payload);
    Serial.print("HTTP POST Response: "); Serial.println(httpCode); // HTTP code 200 means ok 
